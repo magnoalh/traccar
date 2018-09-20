@@ -65,9 +65,9 @@ public class Gt06ProtocolEncoder extends BaseProtocolEncoder {
 
         switch (command.getType()) {
             case Command.TYPE_ENGINE_STOP:
-                return encodeContent(command.getDeviceId(), alternative ? "DYD,123456#" : "Relay,1#");
+                return encodeContent(command.getDeviceId(), alternative ? "DYD,123456#": "DYD,000000#" : "Relay,1#");
             case Command.TYPE_ENGINE_RESUME:
-                return encodeContent(command.getDeviceId(), alternative ? "HFYD,123456#" : "Relay,0#");
+                return encodeContent(command.getDeviceId(), alternative ? "HFYD,123456#" : "HFYD,000000#" : "Relay,0#");
             case Command.TYPE_CUSTOM:
                 return encodeContent(command.getDeviceId(), command.getString(Command.KEY_DATA));
             default:
